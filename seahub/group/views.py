@@ -41,7 +41,7 @@ from seahub.contacts.models import Contact
 from seahub.contacts.signals import mail_sended
 from seahub.group.signals import add_user_to_group
 from seahub.group.utils import validate_group_name, BadGroupNameError, \
-    ConflictGroupNameError
+    ConflictGroupNameError, get_group_domain
 from seahub.notifications.models import UserNotification
 from seahub.wiki import get_group_wiki_repo, get_group_wiki_page, convert_wiki_link,\
     get_wiki_pages
@@ -779,6 +779,8 @@ def batch_add_members(request, group_id):
             messages.error(request, _(u'Failed'))
             return HttpResponseRedirect(next)
 
+    user_domain = request.user.username.split('@')[1]
+
     failed = []
     success = []
     member_list = []
@@ -792,6 +794,10 @@ def batch_add_members(request, group_id):
             continue
 
         if is_group_user(group.id, email):
+            continue
+
+        email_domain = email.split('@')[1]
+        if email_domain != user_domain:
             continue
 
         member_list.append(email)
