@@ -22,7 +22,7 @@ from seahub.avatar.templatetags.group_avatar_tags import api_grp_avatar_url, \
         get_default_group_avatar_url
 from seahub.utils import is_org_context
 from seahub.utils.timeutils import dt, utc_to_local
-from seahub.group.utils import validate_group_name, check_group_name_conflict
+from seahub.group.utils import validate_group_name, check_group_name_conflict, get_group_domain
 from seahub.base.templatetags.seahub_tags import email2nickname, \
     translate_seahub_time
 
@@ -54,6 +54,7 @@ class Groups(APIView):
 
         org_id = None
         username = request.user.username
+        group_domain = username.split('@')[1]
         if is_org_context(request):
             org_id = request.user.org.org_id
             user_groups = seaserv.get_org_groups_by_user(org_id, username)
@@ -75,6 +76,9 @@ class Groups(APIView):
             except Exception as e:
                 logger.error(e)
                 avatar_url = get_default_group_avatar_url()
+
+            if get_group_domain(g.id) != group_domain:
+                continue
 
             val = utc_to_local(dt(g.timestamp))
             group = {
@@ -124,6 +128,7 @@ class Groups(APIView):
             return api_error(status.HTTP_403_FORBIDDEN, error_msg)
 
         username = request.user.username
+        group_domain = username.split('@')[1]
         group_name = request.DATA.get('group_name', '')
         group_name = group_name.strip()
 
@@ -133,7 +138,7 @@ class Groups(APIView):
             return api_error(status.HTTP_400_BAD_REQUEST, error_msg)
 
         # Check whether group name is duplicated.
-        if check_group_name_conflict(request, group_name):
+        if check_group_name_conflict(request, group_name, group_domain):
             error_msg = _(u'There is already a group with that name.')
             return api_error(status.HTTP_400_BAD_REQUEST, error_msg)
 
