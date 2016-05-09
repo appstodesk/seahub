@@ -374,6 +374,10 @@ class SearchUser(APIView):
         except ValueError:
             size = 32
 
+        # Remove users that aren't in the same domain as the user performing the search
+        user_domain = '@' + request.user.username.split('@')[1]
+        search_result = [result for result in search_result if result.endswith(user_domain)]
+
         formated_result = format_user_result(request, search_result, size)[:10]
         return HttpResponse(json.dumps({"users": formated_result}), status=200,
                             content_type=json_content_type)
