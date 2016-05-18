@@ -109,6 +109,7 @@ TEMPLATE_LOADERS = (
 
 # Order is important
 MIDDLEWARE_CLASSES = (
+    'seahub.base.middleware.ForceDefaultLanguageMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
