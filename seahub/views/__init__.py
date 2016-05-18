@@ -1704,7 +1704,10 @@ def i18n(request):
     from django.conf import settings
     next = request.META.get('HTTP_REFERER', settings.SITE_ROOT)
 
-    lang = settings.LANGUAGE_CODE
+    lang = request.GET.get('lang', settings.LANGUAGE_CODE)
+    if lang not in [e[0] for e in settings.LANGUAGES]:
+        # language code is not supported, use default.
+        lang = settings.LANGUAGE_CODE
 
     # set language code to user profile if user is logged in
     if not request.user.is_anonymous():
