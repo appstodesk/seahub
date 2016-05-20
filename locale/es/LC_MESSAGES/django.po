@@ -7230,7 +7230,7 @@ msgstr "No tienes permiso  para crear un wiki"
 
 #: seahub/templates/footer.html:8
 msgid "Download client"
-msgstr "Descarga de cliente"
+msgstr ""
 
 #: seahub/templates/footer.html:8
 msgid "Powered by Open365"
