@@ -7227,3 +7227,11 @@ msgstr "Az érték érvénytelen"
 #: seahub/views/wiki.py:138
 msgid "You do not have permission to create wiki"
 msgstr "Nincs joga wiki oldalt létrehozni"
+
+#: seahub/templates/footer.html:8
+msgid "Download client"
+msgstr ""
+
+#: seahub/templates/footer.html:8
+msgid "Powered by Open365"
+msgstr ""

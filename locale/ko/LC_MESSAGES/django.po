@@ -7217,3 +7217,11 @@ msgstr "잘못된 값"
 #: seahub/views/wiki.py:138
 msgid "You do not have permission to create wiki"
 msgstr "위키를 만들 권한이 없습니다."
+
+#: seahub/templates/footer.html:8
+msgid "Download client"
+msgstr ""
+
+#: seahub/templates/footer.html:8
+msgid "Powered by Open365"
+msgstr ""

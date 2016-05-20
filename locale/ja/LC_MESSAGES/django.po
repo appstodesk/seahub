@@ -7219,3 +7219,11 @@ msgstr ""
 #: seahub/views/wiki.py:138
 msgid "You do not have permission to create wiki"
 msgstr "Wikiを作成する権限がありません。"
+
+#: seahub/templates/footer.html:8
+msgid "Download client"
+msgstr ""
+
+#: seahub/templates/footer.html:8
+msgid "Powered by Open365"
+msgstr ""
