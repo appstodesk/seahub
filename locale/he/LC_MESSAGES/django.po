@@ -7224,10 +7224,10 @@ msgstr ""
 msgid "You do not have permission to create wiki"
 msgstr ""
 
-#: seahub/templates/footer.html:8
+#:
 msgid "Download client"
 msgstr ""
 
-#: seahub/templates/footer.html:8
+#:
 msgid "Powered by Open365"
 msgstr ""

@@ -5665,10 +5665,10 @@ msgstr "Transfer mislukt, gebruiker %s niet gevonden"
 msgid "Failed to transfer, invalid arguments."
 msgstr "Transfer mislukt, ongeldige argumenten."
 
-#: seahub/templates/footer.html:8
+#:
 msgid "Download client"
 msgstr ""
 
-#: seahub/templates/footer.html:8
+#:
 msgid "Powered by Open365"
 msgstr ""

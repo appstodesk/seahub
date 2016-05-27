@@ -7220,10 +7220,10 @@ msgstr "无效数值"
 msgid "You do not have permission to create wiki"
 msgstr "你没有权限创建维基。"
 
-#: seahub/templates/footer.html:8
+#:
 msgid "Download client"
 msgstr ""
 
-#: seahub/templates/footer.html:8
+#:
 msgid "Powered by Open365"
 msgstr ""

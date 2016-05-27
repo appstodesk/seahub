@@ -5671,10 +5671,10 @@ msgstr ""
 msgid "Failed to transfer, invalid arguments."
 msgstr ""
 
-#: seahub/templates/footer.html:8
+#:
 msgid "Download client"
 msgstr ""
 
-#: seahub/templates/footer.html:8
+#:
 msgid "Powered by Open365"
 msgstr ""

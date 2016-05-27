@@ -6595,10 +6595,10 @@ msgstr "โปรดเลือกแฟ้มข้อมูล csv ก่อ�
 msgid "You do not have permission to create wiki"
 msgstr "คุณไม่ได้รับอนุญาตสร้าง wiki"
 
-#: seahub/templates/footer.html:8
+#:
 msgid "Download client"
 msgstr ""
 
-#: seahub/templates/footer.html:8
+#:
 msgid "Powered by Open365"
 msgstr ""
