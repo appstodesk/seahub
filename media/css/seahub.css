@@ -53,6 +53,7 @@
 .icon-eye:before                  { content: "\f06e"; }
 .icon-eye-slash:before            { content: "\f070"; }
 .icon-plus-square:before          { content: "\f0fe"; }
+.icon-sync-problem:before         { content: "\f071"; }
 .fa-1x {
     font-size: 1.3em;
 }

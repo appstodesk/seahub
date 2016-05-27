@@ -24,7 +24,9 @@ define([
         },
 
         render: function() {
-            this.$el.html(this.template(this.model.toJSON()));
+            var template_variables = this.model.toJSON();
+            template_variables['sync_problem'] = Common.IsfilenameProblematicForSyncing(template_variables['name']);
+            this.$el.html(this.template(template_variables));
             return this;
         },
 

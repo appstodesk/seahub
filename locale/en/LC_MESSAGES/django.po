@@ -5403,6 +5403,10 @@ msgstr ""
 msgid "advanced"
 msgstr ""
 
+#:
+msgid "This may not be synchronized in some platforms due to having invalid chars in its name."
+msgstr ""
+
 #: seahub/templates/registration/activation_email.html:12
 #, python-format
 msgid ""

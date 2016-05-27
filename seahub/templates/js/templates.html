@@ -36,11 +36,16 @@
       <img src="{{ MEDIA_URL }}img/sync-folder-20.png" title="{% trans "Read-Write" %}" alt="" />
       <% } %>
     </td>
+    <td>
     <% if (name) { %>
-    <td><a href="#my-libs/lib/<%= id %>"><%- name %></a></td>
+        <% if (sync_problem) { %>
+            <span title="{% trans "This may not be synchronized in some platforms due to having invalid chars in its name." %}" class="icon-sync-problem"></span>
+        <% } %>
+        <a href="#my-libs/lib/<%= id %>"><%- name %></a>
     <% } else { %>
-    <td>{% trans "Broken (please contact your administrator to fix this library)" %}</td>
+        {% trans "Broken (please contact your administrator to fix this library)" %}
     <% } %>
+    </td>
     <td>
       <div class="op-container">
         <span class="sf2-icon-share sf2-x repo-share-btn op-icon vh" title="{% trans "Share" %}"></span>
@@ -216,11 +221,16 @@
         <td class="dirent-icon"><img src="{{ MEDIA_URL }}img/folder-24.png" alt="{% trans "Directory icon" %}" /></td>
     <% } %>
     <td>
-        <% if (category) { %>
-        <span class="dirent-name"><a href="#<%= category %>/lib/<%= repo_id %><%- encoded_path %>" class="dir-link normal"><%- dirent.obj_name %></a></span>
-        <% } else { %>
-        <span class="dirent-name"><a href="#lib/<%= repo_id %><%- encoded_path %>" class="dir-link normal"><%- dirent.obj_name %></a></span>
+        <span class="dirent-name">
+        <% if (sync_problem) { %>
+            <span title="{% trans "This may not be synchronized in some platforms due to having invalid chars in its name." %}" class="icon-sync-problem"></span>
         <% } %>
+        <% if (category) { %>
+            <a href="#<%= category %>/lib/<%= repo_id %><%- encoded_path %>" class="dir-link normal"><%- dirent.obj_name %></a>
+        <% } else { %>
+            <a href="#lib/<%= repo_id %><%- encoded_path %>" class="dir-link normal"><%- dirent.obj_name %></a>
+        <% } %>
+        </span>
     </td>
     <td class="dirent-op">
         <div class="repo-file-op vh">
@@ -296,6 +306,9 @@
     </td>
     <td>
         <span class="dirent-name">
+            <% if (sync_problem) { %>
+                <span title="{% trans "This may not be synchronized in some platforms due to having invalid chars in its name." %}" class="icon-sync-problem op-icon"></span>
+            <% } %>
             <% if (dirent.is_img) { %>
             <a class="normal img-name-link" href="{{ SITE_ROOT }}lib/<%= repo_id %>/file<%- encoded_path %>" target="_blank" data-mfp-src="{{ SITE_ROOT }}repo/<%= repo_id %>/raw<%- encoded_path %>"><%- dirent.obj_name %></a>
             <% } else { %>

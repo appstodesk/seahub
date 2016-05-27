@@ -648,6 +648,10 @@ define([
             } else {
                 return bytes + ' B';
             }
+        },
+
+        IsfilenameProblematicForSyncing: function (filename) {
+            return /[<>:"/\\|?*]/.test(filename);
         }
 
     }

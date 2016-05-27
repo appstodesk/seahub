@@ -44,6 +44,8 @@ define([
                 can_generate_shared_link: app.pageOptions.can_generate_shared_link,
                 is_pro: is_pro,
                 file_audit_enabled: file_audit_enabled,
+                // sync_problem: true when the filename contains forbidden characters in some filesystem
+                sync_problem: Common.IsfilenameProblematicForSyncing(this.model.attributes.obj_name),
                 repo_encrypted: dir.encrypted
             }));
             this.$('.file-locked-icon').attr('title', gettext("locked by {placeholder}").replace('{placeholder}', this.model.get('lock_owner_name')));

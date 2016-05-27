@@ -5411,6 +5411,10 @@ msgstr "Buscar Archivos"
 msgid "advanced"
 msgstr "avanzado"
 
+#:
+msgid "This may not be synchronized in some platforms due to having invalid chars in its name."
+msgstr "Es posible que no se sincronice en algunas plataformas debido a que contiene carácteres inválidos en su nombre."
+
 #: seahub/templates/registration/activation_email.html:12
 #, python-format
 msgid ""
