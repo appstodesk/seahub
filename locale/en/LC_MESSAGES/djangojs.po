@@ -170,6 +170,10 @@ msgstr ""
 msgid "Only an extension there, please input a name."
 msgstr ""
 
+#:
+msgid "The following characters are not supported: Angular brackets \\ / : ? * \" |"
+msgstr ""
+
 #: static/scripts/app/views/dir.js:566 static/scripts/app/views/dir.js.c:703
 msgid "Processing..."
 msgstr ""

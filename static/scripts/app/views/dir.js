@@ -345,6 +345,12 @@ define([
                         return false;
                     };
 
+                    // make sure it does not have invalid windows chars
+                    if (Common.isFilenameProblematicForSyncing(dirent_name)) {
+                        Common.showFormError(form_id, gettext("The following characters are not supported: Angular brackets \\ / : ? * \" |"));
+                        return false;
+                    }
+
                     var post_data = {'dirent_name': dirent_name},
                         post_url = Common.getUrl({name: "new_dir", repo_id: dir.repo_id})
                                    + '?parent_dir=' + encodeURIComponent(dir.path);
@@ -405,6 +411,12 @@ define([
                     // if it has an extension, make sure it has a name
                     if (dirent_name.lastIndexOf('.') != -1 && dirent_name.substr(0, dirent_name.lastIndexOf('.')).length == 0) {
                         Common.showFormError(form_id, gettext("Only an extension there, please input a name."));
+                        return false;
+                    }
+
+                    // make sure it does not have invalid windows chars
+                    if (Common.isFilenameProblematicForSyncing(dirent_name)) {
+                        Common.showFormError(form_id, gettext("The following characters are not supported: Angular brackets \\ / : ? * \" |"));
                         return false;
                     }
 

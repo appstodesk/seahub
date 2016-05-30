@@ -253,6 +253,13 @@ define([
                     cancelRename();
                     return false;
                 }
+
+                // make sure it does not have invalid windows chars
+                if (Common.isFilenameProblematicForSyncing(new_name)) {
+                    Common.feedback(gettext("The following characters are not supported: Angular brackets \\ / : ? * \" |"), 'error');
+                    return false;
+                }
+
                 var post_data = {
                     'oldname': dirent_name,
                     'newname': new_name

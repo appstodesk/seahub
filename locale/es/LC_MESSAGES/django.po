@@ -4604,6 +4604,10 @@ msgstr "Es requerido."
 msgid "Only an extension there, please input a name."
 msgstr "Define un nombre, no solamente la extensión."
 
+#:
+msgid "The following characters are not supported: Angular brackets \\ / : ? * \" |"
+msgstr "Los siguientes caracteres no están soportados: Corchetes angulares \\ / : ? * \" |"
+
 #: seahub/templates/repo.html:1945
 msgid "Creating..."
 msgstr "Creando..."
