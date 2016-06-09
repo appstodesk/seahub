@@ -45,7 +45,7 @@ define([
                 is_pro: is_pro,
                 file_audit_enabled: file_audit_enabled,
                 // sync_problem: true when the filename contains forbidden characters in some filesystem
-                sync_problem: Common.isfilenameProblematicForSyncing(this.model.attributes.obj_name),
+                sync_problem: Common.isFilenameProblematicForSyncing(this.model.attributes.obj_name),
                 repo_encrypted: dir.encrypted
             }));
             this.$('.file-locked-icon').attr('title', gettext("locked by {placeholder}").replace('{placeholder}', this.model.get('lock_owner_name')));
@@ -253,6 +253,13 @@ define([
                     cancelRename();
                     return false;
                 }
+
+                // make sure it does not have invalid windows chars
+                if (Common.isFilenameProblematicForSyncing(new_name)) {
+                    Common.feedback(gettext("The following characters are not supported: Angular brackets \\ / : ? * \" |"), 'error');
+                    return false;
+                }
+
                 var post_data = {
                     'oldname': dirent_name,
                     'newname': new_name

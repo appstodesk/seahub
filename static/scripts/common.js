@@ -650,7 +650,7 @@ define([
             }
         },
 
-        isfilenameProblematicForSyncing: function (filename) {
+        isFilenameProblematicForSyncing: function (filename) {
             return /[<>:"/\\|?*]/.test(filename);
         }
 
