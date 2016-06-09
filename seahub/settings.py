@@ -329,9 +329,9 @@ CACHES = {
 # rest_framwork
 REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_RATES': {
-        'ping': '600/minute',
-        'anon': '5/minute',
-        'user': '300/minute',
+        'ping': '60000/second',
+        'anon': '50000/second',
+        'user': '30000/second',
     },
 }
 
