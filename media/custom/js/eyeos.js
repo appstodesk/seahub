@@ -280,15 +280,17 @@
 
         }, 500, 10000);
 
-        function removeEnableModulesBtns () {
-            var elemIds = ['#myhome-enable-mods', '#enable-mods'];
-            function removeElem(elem) {
-                elem.remove();
-            }
-            elemIds.forEach(function (elemId) {
-                waitForElement(elemId, removeElem, 200, 3000);
+        var observerStarredList = onDomChange('#starred-file > table > tbody' , function (elem) {
+            var filesDomElements = $(elem.children).toArray();
+            filesDomElements.forEach(function (item){
+                var aLink = item.children[1].children[0];
+                var libraryName = item.children[2].innerHTML;
+                openLinkInEyeosDesktop(aLink, libraryName);
             });
-        }
+        });
+        onRouteChangeActions.push(function (){
+            observerStarredList.disconnect();
+        });
     }
 
     function updateFileListOnClickBehaviour () {
@@ -314,7 +316,8 @@
     }
 
 
-    function openLinkInEyeosDesktop(aLink) {
+    function openLinkInEyeosDesktop(aLink, libraryName) {
+        libraryName = libraryName || currentLibraryName;
         var filePath = getEyeosPathFromHref(aLink);
         var ext = filePath.split('.').pop().toLowerCase();
         if(!openInEyeosExtensions[ext]){
@@ -323,7 +326,7 @@
         aLink.onclick=function(e){
             e.preventDefault();
             e.stopPropagation();
-            sendOpenFileToDesktop(currentLibraryName + filePath);
+            sendOpenFileToDesktop(libraryName + filePath);
         }
     }
 

@@ -617,6 +617,11 @@ html, body {
     display: none;
 }
 
+.repo-share-btn.sf2-icon-share:before {
+    font-family: 'seafile-font2';
+    content: "\e011";
+}
+
 .icon-upload-alt:before {
     font-size: 15px;
     margin-right: 5px;
@@ -700,4 +705,8 @@ html, body {
 
 #notice-popup {
     right: 100px !important;
+}
+
+.jstree-default.jstree-focused {
+    background: #eeffff;
 }
