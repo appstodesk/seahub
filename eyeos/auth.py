@@ -61,7 +61,8 @@ class EyeosCardAuthBackend(object):
     def _validate_card(self, card, signature):
         headers = {"Content-type": "application/json", "Accept": "*/*", "card": card, "signature": signature}
         try:
-            conn = httplib.HTTPSConnection("proxy.service.consul", context=ssl._create_unverified_context())
+            proxy_service_consul = os.environ.get("PROXY_DOCKER_NAME") or "proxy.service.consul"
+            conn = httplib.HTTPSConnection(proxy_service_consul, context=ssl._create_unverified_context())
             conn.request("POST", "/login/v1/methods/checkCard/", None, headers)
             res = conn.getresponse()
             response_status = res.status
