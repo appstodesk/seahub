@@ -1,0 +1,703 @@
+/****** icon-xx ********/
+@font-face {
+    font-family: 'Source Sans Pro';
+    src:
+        local('Source Sans Pro'), local('SourceSansPro-Regular'),
+        url('../fonts/sourcesanspro-regular-webfont.woff2') format('woff2'), /* Chrome 26+, Opera 23+ */
+        url('../fonts/sourcesanspro-regular-webfont.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src:
+        local('Source Sans Pro Light'), local('SourceSansPro-Light'),
+        url('../fonts/sourcesanspro-light-webfont.woff2') format('woff2'), /* Chrome 26+, Opera 23+ */
+        url('../fonts/sourcesanspro-light-webfont.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src:
+        local('Source Sans Pro Semibold'), local('SourceSansPro-Semibold'),
+        url('../fonts/sourcesanspro-semibold-webfont.woff2') format('woff2'), /* Chrome 26+, Opera 23+ */
+        url('../fonts/sourcesanspro-semibold-webfont.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src:
+        local('Source Sans Pro Bold'), local('SourceSansPro-Bold'),
+        url('../fonts/sourcesanspro-bold-webfont.woff2') format('woff2'), /* Chrome 26+, Opera 23+ */
+        url('../fonts/sourcesanspro-bold-webfont.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'eyeos-symbols';
+    src: url('../fonts/eyeossymbols-regular-webfont.woff2') format('woff2');
+    src: url('../fonts/eyeossymbols-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/******* seafile header in Open365 ********/
+
+#header {
+    width:75%;
+    height:86px;
+    margin:0;
+    padding:0;
+    padding-left:80px;
+    padding-right:80px;
+    margin: 2em auto 0;
+    background:none;
+}
+
+#header-inner {
+    height:86px;
+    width:100%;
+}
+
+#header A:not(#logo) {
+    display:none;
+    background:none;
+}
+
+#header A#logo {
+    width:307px;
+    height:86px;
+    background: transparent url(../../custom/img/open365.svg) no-repeat;
+    margin-left:-70px;
+}
+
+#header A#logo IMG {
+    display:none;
+}
+
+
+/****** share wrapper modifications *****/
+
+DIV.share-wrapper H2 {
+    color: #505667;
+    font-size:26px;
+    font-weight:normal;
+    margin:0;
+    font-weight:bold;
+}
+
+DIV.share-wrapper H2 + P {
+    color:#96A0B8;
+    font-size:20px;
+    margin-top:-5px;
+    margin-bottom:20px;
+    font-style:italic;
+}
+
+DIV.share-wrapper DIV.fright {
+    margin-top:12px;
+    margin-right:10px;
+}
+
+DIV.share-wrapper P:first-child {
+    color:#505667;
+    font-size:20px;
+    padding:15px;
+}
+
+DIV.share-wrapper TABLE {
+    margin-top:30px;
+}
+
+DIV.share-wrapper TABLE THEAD TH {
+    font-size:18px;
+    color:#797F93;
+}
+
+DIV.share-wrapper TABLE TD {
+    padding-top:20px;
+    padding-bottom:20px;
+    color:#505667;
+}
+
+DIV.share-wrapper TABLE A, DIV.share-wrapper TABLE TD {
+    font-size:18px;
+}
+
+
+
+/******* file upload modifications ********/
+
+DIV#upload-link-panel {
+    width:75%;
+    padding:80px;
+    border:2px dashed;
+    border-radius:5px;
+    margin-bottom:120px;
+}
+
+DIV.wide-panel {
+    font-size: 22px;
+    color: #96A0B8;
+}
+
+DIV.wide-panel H3 {
+    color: #505667;
+    font-size:26px;
+    font-weight:normal;
+    margin:0;
+}
+
+DIV.wide-panel H3 SPAN {
+    color:#505667;
+    font-weight:bold;
+}
+
+/* 'shared by:' text */
+DIV.wide-panel P {
+    font-size:18px;
+    text-transform: capitalize;
+    margin:0;
+    padding:0;
+    font-style:italic;
+}
+
+.fixed-upload-file-dialog {
+    z-index:111;
+}
+
+
+/* ADD FILES button */
+DIV.wide-panel SPAN#add-file {
+    width: 200px;
+    background-color:#4BC8E7;
+    background-image:none;
+    color: #FFFFFF;
+    margin:auto;
+    border:0;
+    display:block;
+    padding:15px;
+    text-align: center;
+}
+
+DIV.wide-panel SPAN#add-file SPAN {
+    font-size:30px;
+}
+
+DIV.wide-panel SPAN#add-file SPAN.icon-plus {
+    color:#FFFFFF;
+    font-size:18px;
+    margin-right:10px;
+}
+
+DIV.wide-panel SPAN#add-file input {
+    top: 0;
+    left: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/* CANCEL Button */
+DIV.wide-panel BUTTON#cancel-all {
+    background-image:none;
+    border:none;
+    font-size:26px;
+    color:#96A0B8;
+    display:block;
+    margin:auto;
+}
+
+DIV.wide-panel BUTTON#cancel-all SPAN {
+    font-size:25px;
+}
+
+DIV.wide-panel BUTTON#cancel-all SPAN.icon-ban-circle {
+    display:none;
+}
+
+/* File upload TIP  */
+OL.tip LI {
+    font-size:18px;
+    color:#96A0B8;
+    text-align:center;
+    list-style-position:inside;
+}
+
+/* File processing list */
+DIV.wide-panel TABLE TR TD {
+    font-style:normal;
+    color:#505667;
+    vertical-align: top;
+}
+
+DIV.wide-panel TABLE TR TD P {
+    font-style:normal;
+}
+
+DIV.wide-panel TABLE TR TD:nth-child(3n+0) {
+    text-align:right;
+}
+
+DIV.wide-panel TABLE TR TD:nth-child(3n+0) SPAN {
+    font-size:18px;
+}
+
+
+DIV.wide-panel TABLE TR TD:nth-child(2n+0) {
+    font-size:18px;
+}
+
+
+DIV.wide-panel TABLE TR TD P.error {
+    font-size:15px;
+    color:red;
+}
+
+/* Progress indicator  */
+DIV.wide-panel DIV.ui-progressbar, .progress {
+    background-image:none;
+    border:0;
+    border-radius:0;
+    box-shadow:none;
+}
+
+
+
+
+
+
+
+/******* tags **********/
+body, input, textarea, button, select {
+    font: 13px/1.5 'Source Sans Pro', sans-serif;
+    color: #333;
+    word-wrap: break-word; /* for en */
+}
+
+a {
+    color: #4BC8E7;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #4BC8E7;
+    text-decoration: underline;
+}
+
+pre, code {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.fixed-upload-file-dialog .fileupload-buttonbar .cancel,
+.template-upload .btn {
+    background: transparent;
+    border: none;
+    color: #4BC8E7;
+}
+
+.msg-form .submit {
+    color: #fff;
+    background: #4BC8E7;
+    border: 1px solid #4BC8E7;
+}
+.msg-form .submit:hover {
+    background: #A5E6F6;
+    border: 1px solid #A5E6F6;
+}
+
+.msg-list {
+    margin-bottom:120px;
+}
+
+.hidden-op a:hover {
+    background: #A5E6F6;
+}
+
+.op-target {
+    color:#4BC8E7;
+    word-wrap:break-word;
+}
+
+.icon-sync-problem,
+.icon-sync-problem:hover {
+    color: #C00;
+}
+
+.op-icon.sf2-x,
+.op-icon.sf2-x:hover {
+    color: #4BC8E7;
+}
+
+.op-list li {
+    background:transparent url('../img/bg.png') no-repeat scroll 0 0;
+}
+
+.left-right-tabs-nav a:hover {
+    text-decoration: none;
+    background: #D4F7FF;
+}
+
+.left-right-tabs-nav .ui-state-active a,
+.left-right-tabs-nav .ui-state-active a:hover {
+    background: #A5E6F6;
+    color: #fff;
+}
+
+.side-tabnav h3.hd,
+.side-tabnav .hd h3 {
+    color: #5AD5F3;
+}
+
+.side-tabnav-tabs .tab a:hover {
+    background-color: #D4F7FF;
+    text-decoration: none;
+}
+
+.side-tabnav-tabs .tab-cur a,
+.side-tabnav-tabs .tab-cur a:hover {
+    background-color: #A5E6F6;
+}
+
+.side-textnav-tabs .tab-cur a,
+.side-textnav-tabs .tab a:hover {
+    color:#4BC8E7;
+    text-decoration:none;
+}
+
+.new-narrow-panel .hd {
+    color:#fff;
+    font-size:16px;
+    padding:5px 20px;
+    background:#A5E6F6;
+    border-bottom:1px solid #d5d5d5;
+}
+
+.tab-popup-tabs-nav .ui-state-active .a,
+.tab-popup-tabs-nav .tab .a:hover {
+    color: #4BC8E7;
+    text-decoration: none;
+    border-bottom-color: #4BC8E7;
+}
+
+.tabnav-tab-cur a,
+.tabnav-tab a:hover,
+.wiki-nav .cur-item .link,
+.wiki-nav .link:hover,
+#right-panel .hd .ui-state-active .a,
+#right-panel .hd .a:hover {
+    color: #4BC8E7;
+    text-decoration: none;
+    border-bottom-color: #4BC8E7;
+}
+
+.ui-progressbar-value,
+.progress .bar {
+    background: #4BC8E7;
+    height:100%;
+}
+
+#msg-count {
+    position: fixed;
+    transform: rotate(-180deg);
+    bottom: 3%;
+    right: 0%;
+    z-index:110;
+}
+
+#msg-count .num {
+    position: absolute;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1;
+    padding: 1px 5px;
+    background: #E43636;
+    border: 1px solid #A5E6F6;
+    top: -5px;
+    left: 18px;
+    border-radius: 2px;
+}
+
+#msg-count #notice-icon {
+    transform: rotate(-180deg);
+}
+
+#msg-count #notice-popup {
+    transform: translateX(50%) rotate(-180deg);
+}
+
+#msg-count #notice-popup .unread {
+    background: #f5f5f7;
+    border-left: 2px solid #A5E6F6;
+    margin: 0 -10px;
+    padding-left: 8px;
+    padding-right: 10px;
+}
+
+#msg-count #notice-popup .outer-caret {
+    left: 105px;
+}
+
+#msg-count .up-outer-caret {
+    position:absolute;
+    bottom:-9px;
+    transform: rotate(-180deg);
+    top: initial;
+}
+
+#header .nav .a:hover {
+    color: #4BC8E7;
+    text-decoration: underline;
+}
+
+.repo-file-list {
+    margin-bottom:120px;
+}
+
+.repo-file-list .dirent-name {
+    display: inline-block;
+    width: 100%;
+}
+
+#docu-view {
+    font-size: 14px; /*override .ace_editor*/
+    line-height: 1.6em;
+    font-family: 'Source Sans Pro', sans-serif;
+    min-height: 200px;
+}
+
+#text-diff-output {
+    font-size: 14px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#plans th {
+    color: #4BC8E7;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.repo-op .op-link:hover {
+    color: #4BC8E7;
+    text-decoration: none;
+}
+
+#guide-for-new .icon-lightbulb {
+    font-size: 6em;
+    color: #A5E6F6;
+}
+
+#header {
+    display: none;
+}
+
+#main {
+    margin-top: 40px;
+    width:100%;
+}
+
+#right-panel {
+    width: calc(100% - 273px);
+}
+
+#ls-ch a {
+    color:#4BC8E7;
+    font-weight:normal;
+}
+
+#footer {
+    width: 100%;
+    height: 50px;
+    position:fixed;
+    bottom:-25px;
+    z-index:100;
+    background:#ffffff;
+}
+
+.innerfooter {
+        width: 950px;
+        margin: auto;
+}
+
+.obv-btn {
+    background: #4BC8E7;
+    border: 1px solid #4BC8E7;
+}
+
+/**************************************/
+html, body {
+    height: 100%;
+}
+
+#wrapper {
+    height: 100%;
+}
+
+#main {
+    margin-top: 0;
+    height: 100%;
+}
+
+#left-panel {
+    padding-top: 20px;
+    height: calc(100% - 20px);
+    background-color: #f5f6f7;
+    margin-left: 0;
+    padding-left: 25px;
+    border-right: solid 1px #cacfc9;
+    width: 181px;
+    padding-right: 25px;
+    float: left
+}
+
+#right-panel {
+    padding-top: 20px;
+    height: calc(100% - 20px);
+    overflow: auto;
+    margin-right: 0;
+    padding-right: 20px;
+}
+
+#right-panel .hd {
+    background: #fff;
+    border-bottom: solid 1px #cacfc9;
+    border-radius: 0;
+}
+
+#dir-view .repo-op .op-btn {
+    padding: 5px 14px;
+}
+
+.side-tabnav {
+    margin-bottom: 30px;
+}
+
+.side-tabnav-tabs {
+    margin-left: 14px;
+}
+
+.side-tabnav-tabs .tab {
+    border-radius: 0;
+}
+
+.side-tabnav-tabs .tab [class^="sf2-icon-"] {
+    display: none;
+}
+
+.side-tabnav-tabs .tab a {
+    padding-left: 10px;
+}
+
+#upload-file, button {
+    border-radius: 0;
+    padding: 0px 12px;
+}
+
+#upload-file {
+    height: 17px;
+}
+
+.repo-share-btn:before, .icon-plus-square:before {
+    font-family: 'eyeos-symbols';
+    content: "\0061";
+    font-size: 23px;
+    margin-right: 5px;
+    color: #4BC8E7;
+    line-height: 15px;
+}
+
+.repo-share-btn img {
+    display: none;
+}
+
+.icon-upload-alt:before {
+    font-size: 15px;
+    margin-right: 5px;
+    color: #4BC8E7;
+}
+
+#footer {
+    visibility: hidden;
+}
+
+#footer .innerfooter .items.fleft .item:first-child {
+    position: fixed;
+    visibility: visible;
+    left: 25px;
+    bottom: 70px;
+    padding: 5px 20px;
+    background-color: #e7e9ee;
+    width: 143px;
+    color: #333;
+    font-size: 15px;
+    text-align: center;
+}
+
+#footer .innerfooter .items.fleft .item:first-child a{
+    color: #333;
+    text-decoration: none;
+}
+
+#footer .innerfooter .items.fleft .item:first-child a::before {
+    font-family: 'eyeos-symbols';
+    content: "\00f1";
+    font-size: 39px;
+    color: #333;
+    line-height: 0;
+    margin-right: 5px;
+}
+
+#msg-count {
+    position: fixed;
+    visibility: visible;
+    left: 25px;
+    bottom: 20px;
+    padding: 5px 20px;
+    font-size: 15px;
+    background-color: white;
+    width: 143px;
+    text-align: center;
+    margin: 0;
+}
+
+.sf2-icon-bell::before {
+    font-family: 'eyeos-symbols';
+    content: "\00c4";
+    font-size: 39px;
+    color: #333;
+    line-height: 0;
+    margin-right: 5px;
+}
+
+.sf2-icon-bell::after {
+    color: #333;
+    content: "Notifications";
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 15px;
+    line-height: 22px;
+}
+
+#msg-count .num {
+    left: 28px;
+}
+
+#dir-view .repo-op {
+    background: #fff;
+    border-bottom: solid 1px #cacfc9;
+    border-radius: 0;
+}
+
+#quota-bar {
+    border-radius: 0;
+}
+
+#notice-popup {
+    right: 100px !important;
+}
