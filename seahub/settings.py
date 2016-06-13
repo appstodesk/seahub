@@ -133,6 +133,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(PROJECT_ROOT, '../../seahub-data/custom/templates'),
+    os.path.join(PROJECT_ROOT, 'media/custom/templates'),
     os.path.join(PROJECT_ROOT, 'seahub/templates'),
 )
 
