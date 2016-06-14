@@ -543,11 +543,9 @@
     }
 
     function modifyUrlDownloadClient() {
-        if (getValueLocalStorage('localization_download_client_active') === "true") {
-            var url = getUrlDownloadClient();
-            if (url) {
-                $('#footer a:first').attr("href", url);
-            }
+        var url = getUrlDownloadClient();
+        if (url) {
+            $('#footer a:first').attr("href", url);
         }
     }
 
