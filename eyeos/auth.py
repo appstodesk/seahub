@@ -1,8 +1,7 @@
 import json
 import httplib
 import logging
-import os
-import ssl
+import subprocess
 
 from seahub.base.accounts import AuthBackend as SeahubAuthBackend
 import seahub.base.accounts as accounts
@@ -59,23 +58,15 @@ class EyeosCardAuthBackend(object):
         return card_object['domain']
 
     def _validate_card(self, card, signature):
-        headers = {"Content-type": "application/json", "Accept": "*/*", "card": card, "signature": signature}
-        try:
-            proxy_service_consul = os.environ.get("PROXY_DOCKER_NAME") or "proxy.service.consul"
-            conn = httplib.HTTPSConnection(proxy_service_consul, context=ssl._create_unverified_context())
-            conn.request("POST", "/login/v1/methods/checkCard/", None, headers)
-            res = conn.getresponse()
-            response_status = res.status
-            response_body = res.read()
-        except Exception as e:
-            logger.debug('got exception trying to check card login service')
-            return False
-        try:
-            response = json.loads(response_body)
-        except ValueError:
-            logger.debug('response from login service is not json, skipping this AuthBackend')
-            return False
-        if response_status == 200 and response['success']:
+        args = {'c': json.loads(card), 's': signature}
+        process = subprocess.Popen(['node', '/opt/auth/index.js', json.dumps(args)], stdout=subprocess.PIPE,
+                                   stderr=subprocess.PIPE)
+        # Uncomment these lines to activate logging
+        # stdout, stderr = process.communicate()
+        # with open("/tmp/card_validation.log", "a") as logfile:
+        #     logfile.write("#STDOUT: " + str(stdout) + "\n#STDERR: " + str(stderr) + '\n\n')
+        ret_code = process.wait()
+        if ret_code == 0:
             return True
         else:
             return False
