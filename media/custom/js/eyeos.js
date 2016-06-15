@@ -32,29 +32,7 @@
         'pptx': 'presentation',
         'pps': 'presentation',
         'ppsx': 'presentation',
-        'odp': 'presentation',
-        'avi': 'gimp',
-        'bmp': 'gimp',
-        'cel': 'gimp',
-        'fits': 'gimp',
-        'fli': 'gimp',
-        'gif': 'gimp',
-        'hrz': 'gimp',
-        'jpeg': 'gimp',
-        'miff': 'gimp',
-        'pcx': 'gimp',
-        'pix': 'gimp',
-        'png': 'gimp',
-        'pnm': 'gimp',
-        'ps': 'gimp',
-        'sgi': 'gimp',
-        'sunras': 'gimp',
-        'tga': 'gimp',
-        'tiff': 'gimp',
-        'xbm': 'gimp',
-        'xcf': 'gimp',
-        'xwd': 'gimp',
-        'xpm': 'gimp'
+        'odp': 'presentation'
     };
 
     var desktopBusSubscriptions = [];
