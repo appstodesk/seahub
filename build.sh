@@ -2,6 +2,9 @@ set -x
 set -u
 set -o pipefail
 
+npm install -g requirejs
+apk update
+apk add build-base gettext
 cd /var/lib/seafile/scripts/seahub
 export PYTHONPATH=$PWD/../seafile/lib64/python2.6/site-packages:$PWD/thirdpart:$PWD
 export PATH=$PATH:thirdpart/Django-1.5.12-py2.6.egg/django/bin
