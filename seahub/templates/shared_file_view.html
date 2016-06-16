@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load seahub_tags i18n %}
+{% load seahub_tags i18n staticfiles %}
 
 {% block extra_style %}
 {% include 'snippets/file_view_style.html' %}
@@ -9,9 +9,17 @@
         margin-bottom:12px;
     }
 </style>
+<link rel="stylesheet" type="text/css" href="{% static "css/eyeos.css" %}" />
 {% endblock %}
 
 {% block main_panel %}
+    <div id='publicMessage'>
+        {% trans "File shared using <strong>Open365</strong> personal cloud. " %}
+        <br>{% trans "You can download it and deploy to your own server. " %}
+        <br>{% trans "Or use it online for free here:  " %}
+        <a id='homeLink' style='display: inline' href='https://open365.io/?source=shareByUrl'>open365.io</a>.
+        <strong>{% trans "Try it!" %}</strong>
+    </div>
     <div id="shared-file-view-hd" class="ovhd">
         <div class="fleft">
             <h2 class="ellipsis no-bold" title="{{ file_name }}">{{ file_name }}</h2>

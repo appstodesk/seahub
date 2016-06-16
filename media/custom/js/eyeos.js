@@ -100,8 +100,6 @@
 
         if (locationIsResourceView()) {
             createOpen365header();
-        } else {
-            appendPublicMessage();            
         }
         
         customizeFileSharePage();
@@ -144,29 +142,6 @@
             vars[key] = value;
         });
         return vars[variable];
-    }
-
-    // Adds the Open365 public message
-    function appendPublicMessage() {
-        var messageHtml = "<div id='publicMessage'>" +
-            "File shared using <strong>Open365</strong> personal cloud. " +
-            "<br> You can download it and deploy to your own server. " +
-            "<br> Or use it online for free here:  " +
-            "<a id='homeLink' style='display: inline' href='https://open365.io/?source=shareByUrl'>open365.io</a>. " +
-            "<strong>Try it!</strong></div>";
-
-        $("#main-panel").prepend(messageHtml);
-        $("#header .fright").css({
-            display: 'none'
-        });
-        $('#publicMessage').css({
-            width: '1024px',
-            margin: '0px auto 20px',
-            backgroundColor: '#e4f4f4',
-            textAlign: 'center',
-            fontSize: '1.5em',
-            padding: '15px'
-        });
     }
 
     // If there is NO div with 'wide-panel' class element, then we are being called from the

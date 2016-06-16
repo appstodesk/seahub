@@ -5,9 +5,17 @@
 
 {% block extra_style %}
 <link rel="stylesheet" type="text/css" href="{% static "css/magnific-popup.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "css/eyeos.css" %}" />
 {% endblock %}
 
 {% block main_panel %}
+    <div id='publicMessage'>
+        {% trans "File shared using <strong>Open365</strong> personal cloud. " %}
+        <br>{% trans "You can download it and deploy to your own server. " %}
+        <br>{% trans "Or use it online for free here:  " %}
+        <a id='homeLink' style='display: inline' href='https://open365.io/?source=shareByUrl'>open365.io</a>.
+        <strong>{% trans "Try it!" %}</strong>
+    </div>
     <h2>{{ dir_name }}</h2>
     <p>{% trans "Shared by: " %}{{ username|email2nickname }}</p>
 

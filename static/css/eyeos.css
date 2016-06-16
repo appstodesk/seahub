@@ -1,0 +1,12 @@
+#publicMessage {
+    width: 1024px;
+    margin: 0px auto 20px;
+    background-color: #e4f4f4;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 15px
+}
+
+#header .fright {
+    display: none
+}
