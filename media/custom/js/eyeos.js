@@ -281,7 +281,9 @@
                     .show()
                     .find('.dirent-name .normal:not(.dir-link)')
                     .toArray()
-                    .forEach(openLinkInEyeosDesktop);                  
+                    .forEach(function (item) {
+                        openLinkInEyeosDesktop(item);
+                    });
             });
 
         });
