@@ -414,6 +414,13 @@ LOGGING = {
                 'maxBytes': 1024*1024*10, # 10 MB
                 'formatter':'standard',
         },
+        'access_handler': {
+                'level':'INFO',
+                'class':'logging.handlers.RotatingFileHandler',
+                'filename': os.path.join(LOG_DIR, 'seahub_gunicorn_access.log'),
+                'maxBytes': 1024*1024*10, # 10 MB
+                'formatter':'standard',
+        },
         'mail_admins': {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
@@ -429,6 +436,11 @@ LOGGING = {
         'django.request': {
             'handlers': ['request_handler', 'mail_admins'],
             'level': 'WARN',
+            'propagate': False
+        },
+        'gunicorn.access': {
+            'handlers': ['access_handler'],
+            'level': 'INFO',
             'propagate': False
         },
     }
