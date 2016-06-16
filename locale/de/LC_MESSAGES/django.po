@@ -7275,3 +7275,23 @@ msgstr ""
 #:
 msgid "Powered by Open365"
 msgstr ""
+
+#: seahub/templates/view_shared_dir.html:13
+#: seahub/templates/shared_file_view.html:17
+msgid "File shared using <strong>Open365</strong> personal cloud. "
+msgstr ""
+
+#: seahub/templates/view_shared_dir.html:14
+#: seahub/templates/shared_file_view.html:18
+msgid "You can download it and deploy to your own server. "
+msgstr ""
+
+#: seahub/templates/view_shared_dir.html:15
+#: seahub/templates/shared_file_view.html:19
+msgid "Or use it online for free here:  "
+msgstr ""
+
+#: seahub/templates/view_shared_dir.html:17
+#: seahub/templates/shared_file_view.html:21
+msgid "Try it!"
+msgstr ""
