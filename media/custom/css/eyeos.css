@@ -303,6 +303,10 @@ pre, code {
     color: #4BC8E7;
 }
 
+.img-icon-link:hover {
+    text-decoration: none;
+}
+
 .msg-form .submit {
     color: #fff;
     background: #4BC8E7;
@@ -466,6 +470,12 @@ pre, code {
     width: 100%;
 }
 
+.repo-file-list .dirent-op {
+    width:150px;
+    text-align: right;
+    padding: 0 20px 0 30px
+}
+
 #docu-view {
     font-size: 14px; /*override .ace_editor*/
     line-height: 1.6em;
@@ -620,6 +630,19 @@ html, body {
 .repo-share-btn.sf2-icon-share:before {
     font-family: 'seafile-font2';
     content: "\e011";
+}
+
+.op-icon.icon-gimp {
+    font-family: 'eyeos-symbols';
+    speak: none;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+}
+.op-icon.icon-gimp:before {
+    font-size: 1.5em;
+    content: "\002a";
 }
 
 .icon-upload-alt:before {
