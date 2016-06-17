@@ -32,7 +32,8 @@
         'pptx': 'presentation',
         'pps': 'presentation',
         'ppsx': 'presentation',
-        'odp': 'presentation'
+        'odp': 'presentation',
+        'xcf': 'gimp'
     };
 
     var desktopBusSubscriptions = [];
