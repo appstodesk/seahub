@@ -360,24 +360,6 @@
         return window.parent.DesktopBus;
     }
 
-    function getMyLibraryName (callback) {
-        var url = location.protocol+"//"+document.domain+':'+location.port + '/sync/api2/repos/?type=mine';
-        $.ajax(url, {
-            success: function(data) {
-                if(data[0] && data[0].name) {
-                    var name = data[0].name;
-                    callback(null, name)
-                } else {
-                    callback(new Error('Can\'t get the name of the library'));
-                }
-            },
-            error: function (err) {
-                callback(err);
-            }
-        });
-    }
-
-
     function getCurrentLibraryId() {
         var hashParts = location.hash.split('/');
         var libIdIndex = hashParts.indexOf("lib") + 1;
