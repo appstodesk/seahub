@@ -166,56 +166,9 @@ define([
         },
 
         edit: function() {
-            function getLibraryName (repoId, callback) {
-                function _getLibraryNameFromListOfLibraries (libraries) {
-                    for (var i = 0; i < libraries.length; i++) {
-                        var library = libraries[i];
-                        if (library.id === repoId) {
-                            return library.name;
-                        }
-                    }
-                    console.log("Couldn't find library name. How could that be possible?");
-                    return false;
-                }
-
-                function _isLibraryNameRepeated (name, libraries) {
-                    var num = 0;
-                    for (var i = 0; i < libraries.length; i++) {
-                        var library = libraries[i];
-                        if (library.name === name) {
-                            num++;
-                            if (num > 1) {
-                                return true;
-                            }
-                        }
-                    }
-                    return false;
-                }
-
-                var url = '/sync/api2/repos/';
-                $.ajax(url, {
-                    success: function(libraries) {
-                        if (libraries && libraries.length) {
-                            var name = _getLibraryNameFromListOfLibraries(libraries);
-                            if (!name) {
-                                return callback(new Error('Can\'t get the name of the library'));
-                            }
-                            if (_isLibraryNameRepeated(name, libraries)) {
-                                name += '-' + repoId.substr(0, 6);
-                            }
-                            return callback(null, name);
-                        } else {
-                            callback(new Error('Can\'t get the name of the library'));
-                        }
-                    },
-                    error: function (err) {
-                        callback(err);
-                    }
-                });
-            }
             var desktopBus = window.parent.DesktopBus;
             var self = this;
-            getLibraryName(this.dir.repo_id, function(err, libraryName) {
+            Common.getExportedLibraryName(this.dir.repo_id, function(err, libraryName) {
                 if (desktopBus && !err) {
                     var event = {
                         name: 'eyeosCloud.fileOpened',
