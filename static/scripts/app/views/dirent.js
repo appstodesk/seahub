@@ -167,19 +167,23 @@ define([
 
         edit: function() {
             var desktopBus = window.parent.DesktopBus;
-            if (desktopBus) {
-                var event = {
-                    name: 'eyeosCloud.fileOpened',
-                    //path: this.dir.repo_name + this.dir.path + '/' + this.model.get('obj_name')
-                    path: this.dir.repo_name + Common.pathJoin([this.dir.path, this.model.get('obj_name')])
-                };
-                console.log("sending event to desktop", event);
-                desktopBus.dispatch(event.name, event);
-            } else {
-                console.error('No desktopBus present in parent iframe');
-            }
+            var self = this;
+            Common.getExportedLibraryName(this.dir.repo_id, function(err, libraryName) {
+                if (desktopBus && !err) {
+                    var event = {
+                        name: 'eyeosCloud.fileOpened',
+                        //path: this.dir.repo_name + this.dir.path + '/' + this.model.get('obj_name')
+                        path: Common.pathJoin([libraryName, self.dir.path, self.model.get('obj_name')])
+                    };
+                    console.log("sending event to desktop", event);
+                    desktopBus.dispatch(event.name, event);
+                } else {
+                    console.error('No desktopBus present in parent iframe');
+                }
+            });
             return false;
         },
+
         share: function() {
             var dir = this.dir,
                 obj_name = this.model.get('obj_name'),
