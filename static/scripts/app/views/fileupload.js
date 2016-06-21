@@ -130,6 +130,9 @@ define([
                     return false;
                 }
 
+                var parser = document.createElement('a');
+                parser.href = document.URL;
+                var hostname = parser.hostname;
                 var upload_file = function() {
                     $.ajax({
                         url: Common.getUrl({
@@ -138,7 +141,8 @@ define([
                             }),
                         data: {
                             'op_type': 'upload',
-                            'path': dirents.path
+                            'path': dirents.path,
+                            'hostname': hostname
                         },
                         cache: false,
                         dataType: 'json',
@@ -166,7 +170,8 @@ define([
                                         }),
                                         data: {
                                             'parent_dir': dirents.path,
-                                            'file_name': file.name
+                                            'file_name': file.name,
+                                            'hostname': hostname
                                         },
                                         cache: false,
                                         dataType: 'json',
@@ -202,7 +207,8 @@ define([
                             }),
                         data: {
                             'op_type': 'update',
-                            'path': dirents.path
+                            'path': dirents.path,
+                            'hostname': hostname
                         },
                         cache: false,
                         dataType: 'json',

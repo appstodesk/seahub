@@ -1689,7 +1689,7 @@ def get_file_op_url(request, repo_id):
                                                         op_type, username,
                                                         use_onetime=False)
 
-    url = gen_file_upload_url(token, op_type + '-aj')
+    url = gen_file_upload_url(token, op_type + '-aj', request.GET.get('hostname'))
 
     return HttpResponse(json.dumps({"url": url}), content_type=content_type)
 
@@ -1719,7 +1719,7 @@ def get_file_upload_url_ul(request, token):
     acc_token = seafile_api.get_fileserver_access_token(repo_id, 'dummy',
                                                         'upload', '',
                                                         use_onetime=False)
-    url = gen_file_upload_url(acc_token, 'upload-aj')
+    url = gen_file_upload_url(acc_token, 'upload-aj', request.GET.get('hostname'))
     return HttpResponse(json.dumps({"url": url}), content_type=content_type)
 
 @login_required_ajax

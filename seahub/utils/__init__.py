@@ -431,8 +431,15 @@ def gen_file_get_url(token, filename):
     """
     return '%s/files/%s/%s' % (get_fileserver_root(), token, urlquote(filename))
 
-def gen_file_upload_url(token, op):
-    return '%s/%s/%s' % (get_fileserver_root(), op, token)
+def gen_file_upload_url(token, op, hostname=None):
+    url = '%s/%s/%s' % (get_fileserver_root(), op, token)
+    if hostname:
+        parsed_url = urlparse(url)
+        if parsed_url.port:
+            hostname += ':' + str(parsed_url.port)
+        parsed_url = parsed_url._replace(netloc=hostname)
+        url = parsed_url.geturl()
+    return url
 
 def get_ccnet_server_addr_port():
     """get ccnet server host and port"""
