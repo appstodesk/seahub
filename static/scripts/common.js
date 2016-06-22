@@ -608,6 +608,7 @@ define([
                 'gif',
                 'hrz',
                 'jpeg',
+                'jpg',
                 'miff',
                 'pcx',
                 'pix',
