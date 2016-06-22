@@ -593,39 +593,6 @@ define([
             }
         },
 
-        gimpEditableCheck: function (filename) {
-            // no file ext
-            if (filename.lastIndexOf('.') == -1) {
-                return false;
-            }
-            var file_ext = filename.substr(filename.lastIndexOf('.') + 1).toLowerCase();
-            var image_exts = [
-                'avi',
-                'bmp',
-                'cel',
-                'fits',
-                'fli',
-                'gif',
-                'hrz',
-                'jpeg',
-                'miff',
-                'pcx',
-                'pix',
-                'png',
-                'pnm',
-                'ps',
-                'sgi',
-                'sunras',
-                'tga',
-                'tiff',
-                'xbm',
-                'xcf',
-                'xwd',
-                'xpm'
-            ];
-            return image_exts.indexOf(file_ext) != -1;
-        },
-
         compareTwoWord: function(a_name, b_name) {
             // compare a_name and b_name at lower case
             // if a_name >= b_name, return 1
