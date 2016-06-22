@@ -428,6 +428,7 @@ define([
                         var new_dirent = dir.add({
                             'is_file': true,
                             'is_img': Common.imageCheck(data['name']),
+                            'is_gimp_editable': Common.gimpEditableCheck(data['name']),
                             'obj_name': data['name'],
                             'file_size': Common.fileSizeFormat(0),
                             'obj_id': '0000000000000000000000000000000000000000',
