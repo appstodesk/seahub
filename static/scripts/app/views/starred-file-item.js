@@ -24,6 +24,7 @@ define([
             var data = this.model.toJSON();
 
             data['is_img'] = Common.imageCheck(data['file_name']);
+            data['is_gimp_editable'] = Common.gimpEditableCheck(data['file_name']);
             data['encoded_path'] = Common.encodePath(data['path']);
 
             this.$el.html(this.template(data));

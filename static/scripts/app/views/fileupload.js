@@ -341,6 +341,7 @@ define([
                         var new_dirent = dirents.add({
                             'is_file': true,
                             'is_img': Common.imageCheck(file.name),
+                            'is_gimp_editable': Common.gimpEditableCheck(file.name),
                             'obj_name': file.name,
                             'last_modified': now,
                             'file_size': Common.fileSizeFormat(file.size, 1),
