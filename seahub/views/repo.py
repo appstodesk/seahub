@@ -28,7 +28,7 @@ from seahub.settings import FORCE_SERVER_CRYPTO, \
     ENABLE_UPLOAD_FOLDER, ENABLE_RESUMABLE_FILEUPLOAD, ENABLE_THUMBNAIL, \
     THUMBNAIL_ROOT, THUMBNAIL_DEFAULT_SIZE, THUMBNAIL_SIZE_FOR_GRID
 from seahub.utils import gen_file_get_url
-from seahub.utils.file_types import IMAGE
+from seahub.utils.file_types import IMAGE, GIMP
 from seahub.thumbnail.utils import get_share_link_thumbnail_src
 
 # Get an instance of a logger
@@ -318,6 +318,8 @@ def view_shared_dir(request, token):
     if not repo.encrypted and ENABLE_THUMBNAIL:
         for f in file_list:
             file_type, file_ext = get_file_type_and_ext(f.obj_name)
+            if file_type == GIMP or file_type == IMAGE:
+                f.is_gimp_editable = True
             if file_type == IMAGE:
                 f.is_img = True
                 if os.path.exists(os.path.join(THUMBNAIL_ROOT, str(thumbnail_size), f.obj_id)):

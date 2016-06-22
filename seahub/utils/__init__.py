@@ -95,6 +95,7 @@ MAX_INT = 2147483647
 PREVIEW_FILEEXT = {
     TEXT: ('ac', 'am', 'bat', 'c', 'cc', 'cmake', 'cpp', 'cs', 'css', 'diff', 'el', 'h', 'html', 'htm', 'java', 'js', 'json', 'less', 'make', 'org', 'php', 'pl', 'properties', 'py', 'rb', 'scala', 'script', 'sh', 'sql', 'txt', 'text', 'tex', 'vi', 'vim', 'xhtml', 'xml', 'log', 'csv', 'groovy', 'rst', 'patch', 'go'),
     IMAGE: ('gif', 'jpeg', 'jpg', 'png', 'ico', 'bmp'),
+    GIMP: ('avi', 'cel', 'fits', 'fli', 'hrz', 'miff', 'pcx', 'pix', 'pnm', 'ps', 'sgi', 'sunras', 'tga', 'tiff', 'xbm', 'xcf', 'xwd', 'xpm'),
     DOCUMENT: ('doc', 'docx', 'ppt', 'pptx'),
     SPREADSHEET: ('xls', 'xlsx', 'ods', 'fods'),
     # SVG: ('svg',),

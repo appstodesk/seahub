@@ -1,5 +1,6 @@
 TEXT = 'Text'
 IMAGE = 'Image'
+GIMP = 'GIMP Document'
 DOCUMENT = 'Document'
 SVG = 'SVG'
 PDF = 'PDF'
