@@ -822,7 +822,7 @@ def gen_file_share_link(token):
     return gen_shared_link(token, 'f')
 
 def gen_shared_link(token, s_type):
-    //service_url = get_service_url()
+    #service_url = get_service_url()
     service_url = get_http_host()
     assert service_url is not None
 
@@ -833,7 +833,7 @@ def gen_shared_link(token, s_type):
         return '%s/d/%s/' % (service_url, token)
 
 def gen_shared_upload_link(token):
-    //service_url = get_service_url()
+    #service_url = get_service_url()
     service_url = get_http_host()
     assert service_url is not None
 
