@@ -763,6 +763,9 @@ def calc_file_path_hash(path, bits=12):
 
     return path_hash
 
+def get_http_host():
+    return request.META['HTTP_HOST']
+
 def get_service_url():
     """Get service url from seaserv.
     """
@@ -819,7 +822,8 @@ def gen_file_share_link(token):
     return gen_shared_link(token, 'f')
 
 def gen_shared_link(token, s_type):
-    service_url = get_service_url()
+    //service_url = get_service_url()
+    service_url = get_http_host()
     assert service_url is not None
 
     service_url = service_url.rstrip('/')
@@ -829,7 +833,8 @@ def gen_shared_link(token, s_type):
         return '%s/d/%s/' % (service_url, token)
 
 def gen_shared_upload_link(token):
-    service_url = get_service_url()
+    //service_url = get_service_url()
+    service_url = get_http_host()
     assert service_url is not None
 
     service_url = service_url.rstrip('/')
@@ -1034,11 +1039,11 @@ if HAS_OFFICE_CONVERTER:
 
     def cluster_delegate(delegate_func):
         '''usage:
-        
+
         @cluster_delegate(funcA)
         def func(*args):
             ...non-cluster logic goes here...
-        
+
         - In non-cluster mode, this decorator effectively does nothing.
         - In cluster mode, if this node is not the office convert node,
         funcA is called instead of the decorated function itself
