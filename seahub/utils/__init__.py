@@ -820,7 +820,7 @@ def gen_file_share_link(token):
 
 def gen_shared_link(token, s_type, http_host):
     #service_url = get_service_url()
-    service_url = http_host
+    http_host='https://' + http_host + '/sync' 
     assert service_url is not None
 
     service_url = service_url.rstrip('/')
