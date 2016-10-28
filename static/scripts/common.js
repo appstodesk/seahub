@@ -61,7 +61,6 @@ define([
 
         getUrl: function(options) {
             var siteRoot = app.config.siteRoot;
-            var siteUrl = $(location).attr('hostname');
             switch (options.name) {
               case 'list_lib_dir': return siteRoot + 'ajax/lib/' + options.repo_id + '/dir/';
               case 'star_file': return siteRoot + 'ajax/repo/' + options.repo_id + '/file/star/';
@@ -92,18 +91,12 @@ define([
               case 'cancel_cp': return siteRoot + 'ajax/cancel_cp/';
               case 'ajax_repo_remove_share': return siteRoot + 'share/ajax/repo_remove_share/';
               case 'get_user_contacts': return siteRoot + 'ajax/contacts/';
-              //case 'get_shared_download_link': return siteRoot + 'share/ajax/get-download-link/';
-              //case 'delete_shared_download_link': return siteRoot + 'share/ajax/link/remove/';
-              //case 'send_shared_download_link': return siteRoot + 'share/link/send/';
-              //case 'send_shared_upload_link': return siteRoot + 'share/upload_link/send/';
-              //case 'delete_shared_upload_link': return siteRoot + 'share/ajax/upload_link/remove/';
-              //case 'get_share_upload_link': return siteRoot + 'share/ajax/get-upload-link/';
-              case 'get_shared_download_link': return siteUrl + 'share/ajax/get-download-link/';
-              case 'delete_shared_download_link': return siteUrl + 'share/ajax/link/remove/';
-              case 'send_shared_download_link': return siteUrl + 'share/link/send/';
-              case 'send_shared_upload_link': return siteUrl + 'share/upload_link/send/';
-              case 'delete_shared_upload_link': return siteUrl + 'share/ajax/upload_link/remove/';
-              case 'get_share_upload_link': return siteUrl + 'share/ajax/get-upload-link/';
+              case 'get_shared_download_link': return siteRoot + 'share/ajax/get-download-link/';
+              case 'delete_shared_download_link': return siteRoot + 'share/ajax/link/remove/';
+              case 'send_shared_download_link': return siteRoot + 'share/link/send/';
+              case 'send_shared_upload_link': return siteRoot + 'share/upload_link/send/';
+              case 'delete_shared_upload_link': return siteRoot + 'share/ajax/upload_link/remove/';
+              case 'get_share_upload_link': return siteRoot + 'share/ajax/get-upload-link/';
               case 'get_popup_notices': return siteRoot + 'ajax/get_popup_notices/';
               case 'set_notices_seen': return siteRoot + 'ajax/set_notices_seen/';
               case 'get_unseen_notices_num': return siteRoot + 'ajax/unseen-notices-count/';
