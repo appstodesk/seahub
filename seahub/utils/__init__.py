@@ -763,9 +763,6 @@ def calc_file_path_hash(path, bits=12):
 
     return path_hash
 
-def get_http_host():
-    return request.META['HTTP_HOST']
-
 def get_service_url():
     """Get service url from seaserv.
     """
@@ -821,9 +818,9 @@ def gen_file_share_link(token):
     """
     return gen_shared_link(token, 'f')
 
-def gen_shared_link(token, s_type):
+def gen_shared_link(token, s_type, http_host):
     #service_url = get_service_url()
-    service_url = get_http_host()
+    service_url = http_host
     assert service_url is not None
 
     service_url = service_url.rstrip('/')

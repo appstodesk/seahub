@@ -48,7 +48,7 @@ from seahub.settings import SITE_ROOT, REPLACE_FROM_EMAIL, ADD_REPLY_TO_HEADER
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 
-########## rpc wrapper    
+########## rpc wrapper
 def is_org_repo_owner(username, repo_id):
     owner = seaserv.seafserv_threaded_rpc.get_org_repo_owner(repo_id)
     return True if owner == username else False
@@ -466,7 +466,7 @@ def list_shared_repos(request):
     """ List user repos shared to users/groups/public.
     """
     share_out_repos = list_share_out_repos(request)
-    
+
     out_repos = []
     for repo in share_out_repos:
         if repo.is_virtual:     # skip virtual repos
@@ -677,7 +677,7 @@ def share_permission_admin(request):
 
 ########## share link
 @login_required_ajax
-@require_POST 
+@require_POST
 def ajax_remove_shared_link(request):
     username = request.user.username
     content_type = 'application/json; charset=utf-8'
@@ -705,7 +705,7 @@ def ajax_remove_shared_link(request):
 
 
 @login_required_ajax
-@require_POST 
+@require_POST
 def ajax_remove_shared_upload_link(request):
     username = request.user.username
     content_type = 'application/json; charset=utf-8'
@@ -1110,6 +1110,7 @@ def ajax_get_download_link(request):
     Handle ajax request to generate file or dir shared link.
     """
     content_type = 'application/json; charset=utf-8'
+    http_host = request.META['HTTP_HOST']
 
     if request.method == 'GET':
         repo_id = request.GET.get('repo_id', '')
@@ -1125,7 +1126,7 @@ def ajax_get_download_link(request):
         if len(l) > 0:
             token = l[0].token
             data = {
-                    'download_link': gen_shared_link(token, l[0].s_type),
+                    'download_link': gen_shared_link(token, l[0].s_type, http_host),
                     'token': token,
                     'is_expired': l[0].is_expired(),
                    }
