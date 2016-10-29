@@ -695,6 +695,7 @@ def repo_shared_link(request, repo_id):
     """
     username = request.user.username
     can_access, repo = can_access_repo_setting(request, repo_id, username)
+    http_host = request.META['HTTP_HOST']
 
     if not can_access:
         raise Http404
@@ -708,7 +709,7 @@ def repo_shared_link(request, repo_id):
                 fs.delete()
                 continue
             fs.filename = os.path.basename(fs.path)
-            fs.shared_link = gen_file_share_link(fs.token)
+            fs.shared_link = gen_file_share_link(fs.token, http_host)
 
             path = fs.path.rstrip('/')  # Normalize file path
             obj_id = seafile_api.get_file_id_by_path(repo.id, path)
@@ -722,7 +723,7 @@ def repo_shared_link(request, repo_id):
                 fs.filename = os.path.basename(fs.path.rstrip('/'))
             else:
                 fs.filename = fs.path
-            fs.shared_link = gen_dir_share_link(fs.token)
+            fs.shared_link = gen_dir_share_link(fs.token, http_host)
 
             path = fs.path
             if path[-1] != '/':         # Normalize dir path
@@ -745,7 +746,7 @@ def repo_shared_link(request, repo_id):
             link.dir_name = os.path.basename(link.path.rstrip('/'))
         else:
             link.dir_name = link.path
-        link.shared_link = gen_shared_upload_link(link.token)
+        link.shared_link = gen_shared_upload_link(link.token, http_host)
         p_uploadlinks.append(link)
 
     return render_to_response('repo_shared_link.html', {
