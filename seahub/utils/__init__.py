@@ -808,15 +808,15 @@ def send_html_email(subject, con_template, con_context, from_email, to_email,
     msg.content_subtype = "html"
     msg.send()
 
-def gen_dir_share_link(token):
+def gen_dir_share_link(token, http_host):
     """Generate directory share link.
     """
-    return gen_shared_link(token, 'd')
+    return gen_shared_link(token, 'd', http_host)
 
-def gen_file_share_link(token):
+def gen_file_share_link(token, http_host):
     """Generate file share link.
     """
-    return gen_shared_link(token, 'f')
+    return gen_shared_link(token, 'f', http_host)
 
 def gen_shared_link(token, s_type, http_host):
     #service_url = get_service_url()

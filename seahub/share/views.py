@@ -495,7 +495,7 @@ def list_shared_links(request):
     """List shared links, and remove invalid links(file/dir is deleted or moved).
     """
     username = request.user.username
-
+    http_host = request.META['HTTP_HOST']
     # download links
     fileshares = FileShare.objects.filter(username=username)
     fs_files, fs_dirs = [], []
@@ -510,7 +510,7 @@ def list_shared_links(request):
                 fs.delete()
                 continue
             fs.filename = os.path.basename(fs.path)
-            fs.shared_link = gen_file_share_link(fs.token)
+            fs.shared_link = gen_file_share_link(fs.token, http_host)
         else:
             if seafile_api.get_dir_id_by_path(r.id, fs.path) is None:
                 fs.delete()
@@ -519,7 +519,7 @@ def list_shared_links(request):
                 fs.filename = os.path.basename(fs.path.rstrip('/'))
             else:
                 fs.filename = fs.path
-            fs.shared_link = gen_dir_share_link(fs.token)
+            fs.shared_link = gen_dir_share_link(fs.token, http_host)
         fs.repo = r
 
         if fs.expire_date is not None and timezone.now() > fs.expire_date:
@@ -544,7 +544,7 @@ def list_shared_links(request):
             link.dir_name = os.path.basename(link.path.rstrip('/'))
         else:
             link.dir_name = link.path
-        link.shared_link = gen_shared_upload_link(link.token)
+        link.shared_link = gen_shared_upload_link(link.token, http_host)
         link.repo = r
         p_uploadlinks.append(link)
     p_uploadlinks.sort(lambda x, y: cmp(x.dir_name, y.dir_name))
@@ -1097,7 +1097,7 @@ def ajax_get_upload_link(request):
                     username, repo_id, path, passwd)
                 token = uls.token
 
-            shared_upload_link = gen_shared_upload_link(token)
+            shared_upload_link = gen_shared_upload_link(token, http_host)
 
             data = json.dumps({'token': token, 'upload_link': shared_upload_link})
             return HttpResponse(data, content_type=content_type)
@@ -1187,7 +1187,7 @@ def ajax_get_download_link(request):
                     OrgFileShare.objects.set_org_file_share(org_id, fs)
 
         token = fs.token
-        shared_link = gen_shared_link(token, fs.s_type)
+        shared_link = gen_shared_link(token, fs.s_type, http_host)
         data = json.dumps({'token': token, 'download_link': shared_link})
         return HttpResponse(data, content_type=content_type)
 
