@@ -1034,6 +1034,7 @@ def send_shared_upload_link(request):
 @login_required_ajax
 def ajax_get_upload_link(request):
     content_type = 'application/json; charset=utf-8'
+    http_host = request.META['HTTP_HOST']
 
     if request.method == 'GET':
         repo_id = request.GET.get('repo_id', '')
@@ -1048,7 +1049,7 @@ def ajax_get_upload_link(request):
         if len(l) > 0:
             token = l[0].token
             data = {
-                    'upload_link': gen_shared_upload_link(token),
+                    'upload_link': gen_shared_upload_link(token, http_host),
                     'token': token,
                    }
         else:
