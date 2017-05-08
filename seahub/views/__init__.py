@@ -303,7 +303,7 @@ def get_repo_dirents(request, repo, commit, path, offset=-1, limit=-1):
                     dirent.starred = True
                 for share in fileshares:
                     if fpath == share.path:
-                        dirent.sharelink = gen_file_share_link(share.token)
+                        dirent.sharelink = gen_file_share_link(share.token, http_host)
                         dirent.sharetoken = share.token
                         break
 
