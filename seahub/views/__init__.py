@@ -239,6 +239,8 @@ def get_repo_dirents(request, repo, commit, path, offset=-1, limit=-1):
     dir_list = []
     file_list = []
     dirent_more = False
+    http_host = request.META['HTTP_HOST']
+
     if commit.root_id == EMPTY_SHA1:
         return ([], [], False) if limit == -1 else ([], [], False)
     else:
@@ -274,7 +276,7 @@ def get_repo_dirents(request, repo, commit, path, offset=-1, limit=-1):
                     dpath += '/'
                 for share in fileshares:
                     if dpath == share.path:
-                        dirent.sharelink = gen_dir_share_link(share.token)
+                        dirent.sharelink = gen_dir_share_link(share.token, http_host)
                         dirent.sharetoken = share.token
                         break
                 for link in uploadlinks:
